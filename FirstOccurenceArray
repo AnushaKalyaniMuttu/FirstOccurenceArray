@@ -1,0 +1,16 @@
+import java.util.Arrays;
+import java.util.OptionalInt;
+
+public class FindFirstOccurrenceInArray {
+    public static int findFirstOccurrence(int[] arr, int target) {
+        OptionalInt index = IntStream.range(0, arr.length)
+                                     .filter(i -> arr[i] == target)
+                                     .findFirst();
+        return index.orElse(-1); // Return -1 if not found
+    }
+
+    public static void main(String[] args) {
+        int[] array = {10, 20, 30, 20, 10};
+        int target = 20;
+        int index = findFirstOccurrence(array, target);
+        System.out.println("The first occurrence of " + target + " is at index: " + index);
